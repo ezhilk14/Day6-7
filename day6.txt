@@ -1,0 +1,150 @@
+DAY -6
+
+
+1.class Movie
+{
+    constructor(title, studio, rating = "PG")
+    {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+    }
+    static getPG(movies) 
+    {
+        return movies.filter((movie) => movie.rating === "PG");
+    }
+
+}
+let movie1 = new Movie("Casino Royale", "Eon Productions", "PG13");
+let movie2 = new Movie("PS1", "ZZZ Productions");
+let movie3 = new Movie("RRR", "AAA Productions", "XX");
+let movie44 = new Movie("VTV", "RR", "PG");
+
+let movieAll = [movie1, movie2, movie3, movie44];
+console.log(Movie.getPG(movieAll));
+
+Output:
+[ Movie { title: 'PS1', studio: 'ZZZ Productions', rating: 'PG' },
+  Movie { title: 'VTV', studio: 'RR', rating: 'PG' } ]
+
+---------------------------------------------------------------------------
+2.
+
+class Circle {
+  constructor(radius, color) {
+    this.radius = radius;
+    this.color = color;
+  }
+
+  get radiusCircle() {
+    return this.radius;
+  }
+
+  set radiusCircle(radius) {
+    this.radius = radius;
+  }
+
+  get colorofCircle() {
+    return this.color;
+  }
+
+  set colorofCircle(color) {
+    this.color = color;   }
+
+  get toString() {
+    return `"Circle[radius=${this.radius},color=${this.color}]"`;
+  }
+
+  get areaCircle()
+  {
+    return (Math.PI *Math.pow(radius,2));
+      
+  }
+    
+  get circumferenceCircle() 
+  {
+    return (2 * Math.PI * this.radius);
+  }
+}
+
+let obj1 = new Circle(5, "yellow");
+console.log(obj1.radiusCircle);
+obj1.radiusCircle = 8.5;
+console.log(obj1.radiusCircle);
+console.log(obj1.colorofCircle);
+obj1.colorofCircle = "green";
+console.log(obj1.colorofCircle);
+console.log(obj1.toString);
+console.log(obj1.areaCircle);
+console.log(obj1.circumferenceCircle);
+
+output:
+5
+8.5
+yellow
+green
+"Circle[radius=8.5,color=green]"
+-------------------------------------------------------------------------------
+3.
+
+
+class Person {
+  constructor(name, age, gender, city) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.city = city;
+  }
+
+  getDetails() {
+    return ` ${this.name}  ${this.age}  ${this.city}`;
+  }
+}
+
+let person1 = new Person("K. Ezhilarasi", 27, "female", "Chittoor");
+console.log(person1.getDetails());
+
+output:
+
+ K. Ezhilarasi  27  Chittoor
+
+
+----------------------------------------------------------------------------------
+4.
+
+class Uberprice
+{
+  constructor(car, distance, duration) 
+  {
+    this.car = car;
+    this.distance = distance;
+    this.duration = duration;
+  }
+
+  get rateByCar() 
+  {
+      let multiplier = {
+                              uberX: 8,
+                              uberXL: 10,
+                              uberFLASH: 12,
+                              uberECO: 14,
+                        };
+    return multiplier[this.car];
+  }
+
+  getPrice() 
+  {
+    const fixedPrice = 20;
+    return fixedPrice + this.rateByCar * (this.distance + this.duration);
+  }
+}
+
+let uber1 = new Uberprice("uberX", 15, 30);
+console.log(uber1.getPrice());
+
+
+Output:
+
+380
+
+-------------------------------------------------------------------------------
